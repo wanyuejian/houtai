@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zw.admin.server.dao.PermissionDao">
+
+
+    <select id="listAll" resultType="com.zw.admin.server.model.Permission">
+        select * from sys_permission t order by t.sort
+    </select>
+
+    <select id="listParents" resultType="com.zw.admin.server.model.Permission">
+        select * from sys_permission t where t.type = 1 order by t.sort
+    </select>
+
+    <select id="listByUserId" parameterType="java.lang.Long" resultType="com.zw.admin.server.model.Permission">
+        select distinct p.*
+        from sys_permission p
+        inner join sys_role_permission rp on p.id = rp.permissionId
+        inner join sys_role_user ru on ru.roleId = rp.roleId
+        <where>
+            ru.userId = #{userId}
+        </where>
+        order by p.sort
+    </select>
+
+    <select id="listByRoleId" parameterType="java.lang.Long" resultType="com.zw.admin.server.model.Permission">
+        select p.*
+        from sys_permission p
+        inner join sys_role_permission rp on p.id = rp.permissionId
+        <where>
+            rp.roleId = #{roleId}
+        </where>
+        order by p.sort
+    </select>
+
+    <insert id="save" parameterType="com.zw.admin.server.model.Permission">
+        insert into sys_permission(parentId, name, css, href, type, permission, sort) values(#{parentId}, #{name}, #{css}, #{href}, #{type}, #{permission}, #{sort})
+    </insert>
+
+    <update id="update" parameterType="com.zw.admin.server.model.Permission">
+        update sys_permission t
+        <set>
+            parentId = #{parentId}, name = #{name}, css = #{css}, href = #{href}, type = #{type}, permission = #{permission}, sort = #{sort}
+        </set>
+        <where>
+            t.id = #{id}
+        </where>
+    </update>
+</mapper>

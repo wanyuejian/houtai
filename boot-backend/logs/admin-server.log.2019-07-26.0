@@ -1,0 +1,3 @@
+2019-07-26 16:18:35,338 [http-nio-8080-exec-6] DEBUG -[MyShiroRealm.java:61]- 权限配置
+2019-07-26 16:21:11,000 [http-nio-8080-exec-5] DEBUG -[LogoutFilter.java:33]- admin退出成功
+2019-07-26 16:31:05,891 [http-nio-8080-exec-10] DEBUG -[MyShiroRealm.java:61]- 权限配置

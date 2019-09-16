@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zw.admin.server.dao.UserDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.username != null and params.username != ''">
+				and t.username like concat('%', #{params.username}, '%')
+			</if>
+			<if test="params.nickname != null and params.nickname != ''">
+				and t.nickname like concat('%', #{params.nickname}, '%')
+			</if>
+			<if test="params.status != null and params.status != ''">
+				and t.status = #{params.status}
+			</if>
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from sys_user t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="User">
+		select * from sys_user t
+		<include refid="where" />
+		${params.orderBy}
+        limit #{offset}, #{limit}
+	</select>
+
+	<insert id="saveUserRoles">
+		insert into sys_role_user(roleId, userId) values
+		<foreach collection="roleIds" item="roleId" separator=",">
+			(#{roleId}, #{userId})
+		</foreach>
+	</insert>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="com.zw.admin.server.model.User" >
+		insert into sys_user(
+			username,
+			password,
+			salt,
+			nickname,
+			headImgUrl,
+			phone,
+			telephone,
+			email,
+			birthday,
+			sex,
+			status,
+			createTime,
+			updateTime
+		) values(
+			#{username},
+			#{password},
+			#{salt},
+			#{nickname},
+			#{headImgUrl},
+			#{phone},
+			#{telephone},
+			#{email},
+			#{birthday},
+			#{sex},
+			#{status},
+			now(),
+			now()
+		)
+	</insert>
+
+	<update id="update">
+		update sys_user t
+		<set>
+			<if test="username != null">
+				username = #{username},
+			</if>
+			<if test="nickname != null">
+				nickname = #{nickname},
+			</if>
+			<if test="headImgUrl != null">
+				headImgUrl = #{headImgUrl},
+			</if>
+			<if test="phone != null">
+				phone = #{phone},
+			</if>
+			<if test="telephone != null">
+				telephone = #{telephone},
+			</if>
+			<if test="email != null">
+				email = #{email},
+			</if>
+			<if test="birthday != null">
+				birthday = #{birthday},
+			</if>
+			<if test="sex != null">
+				sex = #{sex},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			updateTime = #{updateTime}
+		</set>
+		where t.id = #{id}
+	</update>
+
+	<update id="changePassword">
+		update sys_user t
+		<set>
+			t.password = #{password}
+		</set>
+		<where>
+			t.id = #{id}
+		</where>
+	</update>
+
+	<select id="getById" parameterType="java.lang.Long" resultType="com.zw.admin.server.model.User">
+		select * from sys_user t where t.id = #{id}
+	</select>
+
+	<select id="getUser" parameterType="java.lang.String" resultType="com.zw.admin.server.model.User">
+		select * from sys_user t where t.username = #{username}
+	</select>
+
+	<delete id="deleteUserById" parameterType="java.lang.Long">
+		delete from sys_user where id = #{id}
+	</delete>
+
+	<delete id="deleteUserRole" parameterType="java.lang.Long">
+		delete from sys_role_user where userId = #{userId}
+	</delete>
+</mapper>

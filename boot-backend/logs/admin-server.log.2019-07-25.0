@@ -1,0 +1,7 @@
+2019-07-25 14:05:18,863 [http-nio-8080-exec-8] DEBUG -[MyShiroRealm.java:71]- 权限配置
+2019-07-25 14:09:36,623 [http-nio-8080-exec-3] DEBUG -[LogoutFilter.java:35]- admin退出成功
+2019-07-25 14:09:47,892 [http-nio-8080-exec-9] DEBUG -[MyShiroRealm.java:71]- 权限配置
+2019-07-25 14:09:58,028 [http-nio-8080-exec-1] DEBUG -[LogoutFilter.java:35]- admin退出成功
+2019-07-25 14:10:22,245 [http-nio-8080-exec-1] DEBUG -[MyShiroRealm.java:71]- 权限配置
+2019-07-25 14:10:35,381 [http-nio-8080-exec-9] DEBUG -[UserServiceImpl.java:42]- 新增用户abk
+2019-07-25 14:10:42,113 [http-nio-8080-exec-5] DEBUG -[LogoutFilter.java:35]- user退出成功

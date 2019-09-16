@@ -1,0 +1,33 @@
+2019-08-16 10:00:28,727 [http-nio-8080-exec-1] ==>  Preparing: select * from sys_user t where t.username = ? 
+2019-08-16 10:00:29,043 [http-nio-8080-exec-1] ==> Parameters: admin(String)
+2019-08-16 10:00:29,076 [http-nio-8080-exec-1] <==      Total: 1
+2019-08-16 10:00:29,226 [http-nio-8080-exec-1] ==>  Preparing: select distinct p.* from sys_permission p inner join sys_role_permission rp on p.id = rp.permissionId inner join sys_role_user ru on ru.roleId = rp.roleId WHERE ru.userId = ? order by p.sort 
+2019-08-16 10:00:29,234 [http-nio-8080-exec-1] ==> Parameters: 1(Long)
+2019-08-16 10:00:29,252 [http-nio-8080-exec-1] <==      Total: 16
+2019-08-16 10:00:32,908 [http-nio-8080-exec-5] ==>  Preparing: select * from t_dict t where t.type = ? 
+2019-08-16 10:00:32,910 [http-nio-8080-exec-5] ==> Parameters: userStatus(String)
+2019-08-16 10:00:32,915 [http-nio-8080-exec-5] <==      Total: 3
+2019-08-16 10:00:32,986 [http-nio-8080-exec-9] ==>  Preparing: select * from sys_role r inner join sys_role_user ru on r.id = ru.roleId where ru.userId = ? 
+2019-08-16 10:00:32,987 [http-nio-8080-exec-9] ==> Parameters: 1(Long)
+2019-08-16 10:00:32,989 [http-nio-8080-exec-9] <==      Total: 1
+2019-08-16 10:00:32,993 [http-nio-8080-exec-9] ==>  Preparing: select distinct p.* from sys_permission p inner join sys_role_permission rp on p.id = rp.permissionId inner join sys_role_user ru on ru.roleId = rp.roleId WHERE ru.userId = ? order by p.sort 
+2019-08-16 10:00:32,994 [http-nio-8080-exec-9] ==> Parameters: 1(Long)
+2019-08-16 10:00:32,999 [http-nio-8080-exec-9] <==      Total: 16
+2019-08-16 10:00:33,033 [http-nio-8080-exec-9] ==>  Preparing: select count(1) from sys_user t 
+2019-08-16 10:00:33,036 [http-nio-8080-exec-9] ==> Parameters: 
+2019-08-16 10:00:33,040 [http-nio-8080-exec-9] <==      Total: 1
+2019-08-16 10:00:33,044 [http-nio-8080-exec-9] ==>  Preparing: select * from sys_user t order by username desc, nickname asc limit ?, ? 
+2019-08-16 10:00:33,049 [http-nio-8080-exec-9] ==> Parameters: 0(Integer), 10(Integer)
+2019-08-16 10:00:33,052 [http-nio-8080-exec-9] <==      Total: 2
+2019-08-16 10:00:37,416 [http-nio-8080-exec-1] ==>  Preparing: select * from sys_permission t order by t.sort 
+2019-08-16 10:00:37,417 [http-nio-8080-exec-1] ==> Parameters: 
+2019-08-16 10:00:37,420 [http-nio-8080-exec-1] <==      Total: 16
+2019-08-16 10:00:38,433 [http-nio-8080-exec-4] ==>  Preparing: select count(1) from sys_role t 
+2019-08-16 10:00:38,434 [http-nio-8080-exec-4] ==> Parameters: 
+2019-08-16 10:00:38,435 [http-nio-8080-exec-4] <==      Total: 1
+2019-08-16 10:00:38,438 [http-nio-8080-exec-4] ==>  Preparing: select * from sys_role t order by updateTime desc limit ?, ? 
+2019-08-16 10:00:38,439 [http-nio-8080-exec-4] ==> Parameters: 0(Integer), 10(Integer)
+2019-08-16 10:00:38,441 [http-nio-8080-exec-4] <==      Total: 2
+2019-08-16 10:01:02,511 [http-nio-8080-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? 
+2019-08-16 10:01:02,512 [http-nio-8080-exec-4] ==> Parameters: sex(String)
+2019-08-16 10:01:02,516 [http-nio-8080-exec-4] <==      Total: 2

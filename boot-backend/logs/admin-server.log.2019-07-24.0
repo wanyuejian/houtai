@@ -1,0 +1,6 @@
+2019-07-24 15:29:16,532 [http-nio-8080-exec-9] DEBUG -[MyShiroRealm.java:71]- 权限配置
+2019-07-24 15:29:24,408 [http-nio-8080-exec-6] DEBUG -[PermissionServiceImpl.java:40]- 删除菜单id:26
+2019-07-24 15:35:17,502 [http-nio-8080-exec-2] DEBUG -[MyShiroRealm.java:71]- 权限配置
+2019-07-24 15:35:35,833 [http-nio-8080-exec-10] DEBUG -[UserServiceImpl.java:42]- 新增用户adf
+2019-07-24 16:18:22,951 [http-nio-8080-exec-4] DEBUG -[MyShiroRealm.java:71]- 权限配置
+2019-07-24 16:18:30,174 [http-nio-8080-exec-9] DEBUG -[LogoutFilter.java:35]- admin退出成功
